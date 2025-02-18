@@ -1,0 +1,148 @@
+/* Сброс стилей */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Press Start 2P', cursive;
+      background-color: #1a1a1a;
+      color: #fff;
+      /* Фоновый узор в стиле пиксель-арта */
+      background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB1ElEQVR4Aa2TwU4CQRSG/7epcws9AUVH6DFF6FE6FQ0NTgR2Nnsn2BdYlZ7CNYgIXWIv1BxIRGrSxZcnYIpQj9JIAgUthh6qLru57kL+/Lff/eSgSYY1nRZrxl4vHq6Swwd6PvUn+HOIrI37q30x+XP3byzT8Z3I+zEv81iaB34B0D0JZ51NDv14XgHeAaAnOEDLQrtvCR4AOwJn+QwhuS3VbsQAy3YRH87rq9YW5rdK4E5E9fayknqG2qlv+Mjndd6sLSvQ3sHwJP2sL5Hz+l5zCeDBYvQFDwO7bY9ibdyJhSYWbIdVhg42+xe6JyyWuvYdTF/wkRsoOwB8Hmi2FHEOmgXWJ5LSvYvoAS8G7Sk6ofvYE6cyqfvQaHbw7QTChpZl7RjvMwbJvD06O1Xa5LS5HfHhyY2koN6jGbAtQwumTz3FvXBDV9GXqrvWsN97vwNmSTIftkVqaeY+zaVZ3PSdwknkebgggArjcxOif6m3ELRuvpEW1A2Jsm1hb48pfWeX5SyoFl2ys/lbyPP3qaBnyEZP5vd47rdAAAAAElFTkSuQmCC");
+      background-repeat: repeat;
+      line-height: 1.4;
+      padding-bottom: 40px;
+    }
+    header {
+      background-color: #333;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 4px solid #8B4513;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header h1 {
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 1200px;
+      margin: 30px auto;
+      gap: 20px;
+      padding: 0 10px;
+    }
+    .card {
+      background: #4b4b4b;
+      border: 2px solid #8B4513;
+      padding: 20px;
+      width: 300px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, rgba(139,69,19,0.2) 25%, transparent 25%, transparent 50%, rgba(139,69,19,0.2) 50%, rgba(139,69,19,0.2) 75%, transparent 75%, transparent);
+      background-size: 20px 20px;
+      transform: rotate(0deg);
+      transition: transform 0.5s;
+      z-index: 0;
+    }
+    .card:hover::before {
+      transform: rotate(360deg);
+    }
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(139, 69, 19, 0.7);
+    }
+    .card h2 {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      position: relative;
+      z-index: 1;
+    }
+    .card p {
+      font-size: 0.8rem;
+      line-height: 1.4;
+      position: relative;
+      z-index: 1;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #333;
+      border-top: 4px solid #8B4513;
+      margin-top: 40px;
+    }
+    /* Стили модального окна */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      z-index: 200;
+    }
+    .modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .modal-content {
+      background: #4b4b4b;
+      border: 2px solid #8B4513;
+      padding: 20px;
+      max-width: 500px;
+      width: 90%;
+      position: relative;
+      animation: fadeIn 0.5s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .modal-content h2 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+    .modal-content p,
+    .modal-content ul {
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+    .modal-content ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .modal-content ul li {
+      margin-bottom: 10px;
+    }
+    .close-modal {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #8B4513;
+      border: none;
+      color: #fff;
+      font-family: 'Press Start 2P', cursive;
+      cursor: pointer;
+      padding: 5px 10px;
+      font-size: 0.8rem;
+    }
